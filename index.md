@@ -5,14 +5,31 @@ author      : Caio Balena / Allan Vieira
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : prettify  # {highlight.js, prettify, highlight}
-hitheme     : solarized_light      # 
-widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+hitheme     : tomorrow      # 
+widgets     : [mathjax, bootstrap, quiz]            # {mathjax, quiz, bootstrap}
 ext_widgets : #{rCharts: libraries/nvd3}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
+assets      : {js: 'test.js'}
 logo        : est_logo.png
 biglogo     : unb_big_logo.png
----
+--- dt:10
+
+<!-- widgets bootstrap e quiz sao importantes para as tabs funcionarem -->
+
+
+
+<style>
+body {
+  background-color: #000;
+}
+.quiz-option label{
+  display: inline;
+  font-size: 1em;
+}
+ul.nav li::before { content: ""; }  
+ul.nav li{ font-size: 18px; line-height: 24px;}
+</style>
 
 <!-- para alterar cor de fundo dos slides -->
 <style>
@@ -68,19 +85,20 @@ Movimento Browniano como conhecemos:
 <p><center><img src="./assets/img/bear_vs_bull.jpg" align="middle">
 </center></p>
 
---- .class #id 
+--- {class: class, tpl: tabs}
+## Exemplo Mov. Br. - Mercado Financeiro
 
-## Exemplo Movimento Browniano - Mercado Financeiro
+*** {class: active, id: day}
 
 <!-- MotionChart generated in R 3.4.2 by googleVis 0.6.2 package -->
-<!-- Tue Nov 14 10:31:30 2017 -->
+<!-- Wed Nov 15 11:34:24 2017 -->
 
 
 <!-- jsHeader -->
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMotionChartID14962bdffa77 () {
+function gvisDataMotionChartIDcd74d1e3f3d () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -3063,15 +3081,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMotionChartID14962bdffa77() {
-var data = gvisDataMotionChartID14962bdffa77();
+function drawChartMotionChartIDcd74d1e3f3d() {
+var data = gvisDataMotionChartIDcd74d1e3f3d();
 var options = {};
 options["width"] = 900;
 options["height"] = 450;
 options["state"] = "";
 
     var chart = new google.visualization.MotionChart(
-    document.getElementById('MotionChartID14962bdffa77')
+    document.getElementById('MotionChartIDcd74d1e3f3d')
     );
     chart.draw(data,options);
     
@@ -3095,9 +3113,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMotionChartID14962bdffa77);
+callbacks.push(drawChartMotionChartIDcd74d1e3f3d);
 })();
-function displayChartMotionChartID14962bdffa77() {
+function displayChartMotionChartIDcd74d1e3f3d() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -3121,11 +3139,1100 @@ callbacks.shift()();
 </script>
  
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID14962bdffa77"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartIDcd74d1e3f3d"></script>
  
 <!-- divChart -->
   
-<div id="MotionChartID14962bdffa77" 
+<div id="MotionChartIDcd74d1e3f3d" 
+  style="width: 900; height: 450;">
+</div>
+
+*** {id: intraday}
+
+<!-- MotionChart generated in R 3.4.2 by googleVis 0.6.2 package -->
+<!-- Wed Nov 15 12:34:00 2017 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataMotionChartIDcd71b36fce0 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"PETR4.SA",
+new Date(2200,0,1),
+15.35
+],
+[
+"PETR4.SA",
+new Date(2199,0,1),
+15.41
+],
+[
+"PETR4.SA",
+new Date(2198,0,1),
+15.42
+],
+[
+"PETR4.SA",
+new Date(2197,0,1),
+15.4
+],
+[
+"PETR4.SA",
+new Date(2196,0,1),
+15.41
+],
+[
+"PETR4.SA",
+new Date(2195,0,1),
+15.4
+],
+[
+"PETR4.SA",
+new Date(2194,0,1),
+15.4
+],
+[
+"PETR4.SA",
+new Date(2193,0,1),
+15.41
+],
+[
+"PETR4.SA",
+new Date(2192,0,1),
+15.4
+],
+[
+"PETR4.SA",
+new Date(2191,0,1),
+15.38
+],
+[
+"PETR4.SA",
+new Date(2190,0,1),
+15.39
+],
+[
+"PETR4.SA",
+new Date(2189,0,1),
+15.43
+],
+[
+"PETR4.SA",
+new Date(2188,0,1),
+15.41
+],
+[
+"PETR4.SA",
+new Date(2187,0,1),
+15.4
+],
+[
+"PETR4.SA",
+new Date(2186,0,1),
+15.38
+],
+[
+"PETR4.SA",
+new Date(2185,0,1),
+15.39
+],
+[
+"PETR4.SA",
+new Date(2184,0,1),
+15.37
+],
+[
+"PETR4.SA",
+new Date(2183,0,1),
+15.35
+],
+[
+"PETR4.SA",
+new Date(2182,0,1),
+15.38
+],
+[
+"PETR4.SA",
+new Date(2181,0,1),
+15.35
+],
+[
+"PETR4.SA",
+new Date(2180,0,1),
+15.37
+],
+[
+"PETR4.SA",
+new Date(2179,0,1),
+15.35
+],
+[
+"PETR4.SA",
+new Date(2178,0,1),
+15.33
+],
+[
+"PETR4.SA",
+new Date(2177,0,1),
+15.32
+],
+[
+"PETR4.SA",
+new Date(2176,0,1),
+15.34
+],
+[
+"PETR4.SA",
+new Date(2175,0,1),
+15.38
+],
+[
+"PETR4.SA",
+new Date(2174,0,1),
+15.39
+],
+[
+"PETR4.SA",
+new Date(2173,0,1),
+15.42
+],
+[
+"PETR4.SA",
+new Date(2172,0,1),
+15.42
+],
+[
+"PETR4.SA",
+new Date(2171,0,1),
+15.44
+],
+[
+"PETR4.SA",
+new Date(2170,0,1),
+15.45
+],
+[
+"PETR4.SA",
+new Date(2169,0,1),
+15.45
+],
+[
+"PETR4.SA",
+new Date(2168,0,1),
+15.47
+],
+[
+"PETR4.SA",
+new Date(2167,0,1),
+15.48
+],
+[
+"PETR4.SA",
+new Date(2166,0,1),
+15.49
+],
+[
+"PETR4.SA",
+new Date(2165,0,1),
+15.49
+],
+[
+"PETR4.SA",
+new Date(2164,0,1),
+15.49
+],
+[
+"PETR4.SA",
+new Date(2163,0,1),
+15.5
+],
+[
+"PETR4.SA",
+new Date(2162,0,1),
+15.5
+],
+[
+"PETR4.SA",
+new Date(2161,0,1),
+15.5
+],
+[
+"PETR4.SA",
+new Date(2160,0,1),
+15.51
+],
+[
+"PETR4.SA",
+new Date(2159,0,1),
+15.52
+],
+[
+"PETR4.SA",
+new Date(2158,0,1),
+15.52
+],
+[
+"PETR4.SA",
+new Date(2157,0,1),
+15.51
+],
+[
+"PETR4.SA",
+new Date(2156,0,1),
+15.52
+],
+[
+"PETR4.SA",
+new Date(2155,0,1),
+15.53
+],
+[
+"PETR4.SA",
+new Date(2154,0,1),
+15.53
+],
+[
+"PETR4.SA",
+new Date(2153,0,1),
+15.54
+],
+[
+"PETR4.SA",
+new Date(2152,0,1),
+15.54
+],
+[
+"PETR4.SA",
+new Date(2151,0,1),
+15.55
+],
+[
+"PETR4.SA",
+new Date(2150,0,1),
+15.55
+],
+[
+"PETR4.SA",
+new Date(2149,0,1),
+15.56
+],
+[
+"PETR4.SA",
+new Date(2148,0,1),
+15.56
+],
+[
+"PETR4.SA",
+new Date(2147,0,1),
+15.58
+],
+[
+"PETR4.SA",
+new Date(2146,0,1),
+15.58
+],
+[
+"PETR4.SA",
+new Date(2145,0,1),
+15.56
+],
+[
+"PETR4.SA",
+new Date(2144,0,1),
+15.55
+],
+[
+"PETR4.SA",
+new Date(2143,0,1),
+15.55
+],
+[
+"PETR4.SA",
+new Date(2142,0,1),
+15.56
+],
+[
+"PETR4.SA",
+new Date(2141,0,1),
+15.57
+],
+[
+"PETR4.SA",
+new Date(2140,0,1),
+15.55
+],
+[
+"PETR4.SA",
+new Date(2139,0,1),
+15.55
+],
+[
+"PETR4.SA",
+new Date(2138,0,1),
+15.55
+],
+[
+"PETR4.SA",
+new Date(2137,0,1),
+15.57
+],
+[
+"PETR4.SA",
+new Date(2136,0,1),
+15.57
+],
+[
+"PETR4.SA",
+new Date(2135,0,1),
+15.58
+],
+[
+"PETR4.SA",
+new Date(2134,0,1),
+15.58
+],
+[
+"PETR4.SA",
+new Date(2133,0,1),
+15.58
+],
+[
+"PETR4.SA",
+new Date(2132,0,1),
+15.58
+],
+[
+"PETR4.SA",
+new Date(2131,0,1),
+15.58
+],
+[
+"PETR4.SA",
+new Date(2130,0,1),
+15.57
+],
+[
+"PETR4.SA",
+new Date(2129,0,1),
+15.55
+],
+[
+"PETR4.SA",
+new Date(2128,0,1),
+15.57
+],
+[
+"PETR4.SA",
+new Date(2127,0,1),
+15.58
+],
+[
+"PETR4.SA",
+new Date(2126,0,1),
+15.57
+],
+[
+"PETR4.SA",
+new Date(2125,0,1),
+15.57
+],
+[
+"PETR4.SA",
+new Date(2124,0,1),
+15.56
+],
+[
+"PETR4.SA",
+new Date(2123,0,1),
+15.59
+],
+[
+"PETR4.SA",
+new Date(2122,0,1),
+15.6
+],
+[
+"PETR4.SA",
+new Date(2121,0,1),
+15.6
+],
+[
+"PETR4.SA",
+new Date(2120,0,1),
+15.6
+],
+[
+"PETR4.SA",
+new Date(2119,0,1),
+15.6
+],
+[
+"PETR4.SA",
+new Date(2118,0,1),
+15.6
+],
+[
+"PETR4.SA",
+new Date(2117,0,1),
+15.62
+],
+[
+"PETR4.SA",
+new Date(2116,0,1),
+15.62
+],
+[
+"PETR4.SA",
+new Date(2115,0,1),
+15.62
+],
+[
+"PETR4.SA",
+new Date(2114,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2113,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2112,0,1),
+15.69
+],
+[
+"PETR4.SA",
+new Date(2111,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2110,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2109,0,1),
+15.65
+],
+[
+"PETR4.SA",
+new Date(2108,0,1),
+15.65
+],
+[
+"PETR4.SA",
+new Date(2107,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2106,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2105,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2104,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2103,0,1),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2102,0,1),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2101,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2100,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2099,0,1),
+15.65
+],
+[
+"PETR4.SA",
+new Date(2098,0,1),
+15.65
+],
+[
+"PETR4.SA",
+new Date(2097,0,1),
+15.63
+],
+[
+"PETR4.SA",
+new Date(2096,0,1),
+15.63
+],
+[
+"PETR4.SA",
+new Date(2095,0,1),
+15.61
+],
+[
+"PETR4.SA",
+new Date(2094,0,1),
+15.63
+],
+[
+"PETR4.SA",
+new Date(2093,0,1),
+15.63
+],
+[
+"PETR4.SA",
+new Date(2092,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2091,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2090,0,1),
+15.65
+],
+[
+"PETR4.SA",
+new Date(2089,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2088,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2087,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2086,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2085,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2084,0,1),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2083,0,1),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2082,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2081,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2080,0,1),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2079,0,1),
+15.69
+],
+[
+"PETR4.SA",
+new Date(2078,0,1),
+15.69
+],
+[
+"PETR4.SA",
+new Date(2077,0,1),
+15.72
+],
+[
+"PETR4.SA",
+new Date(2076,0,1),
+15.72
+],
+[
+"PETR4.SA",
+new Date(2075,0,1),
+15.7
+],
+[
+"PETR4.SA",
+new Date(2074,0,1),
+15.69
+],
+[
+"PETR4.SA",
+new Date(2073,0,1),
+15.7
+],
+[
+"PETR4.SA",
+new Date(2072,0,1),
+15.72
+],
+[
+"PETR4.SA",
+new Date(2071,0,1),
+15.71
+],
+[
+"PETR4.SA",
+new Date(2070,0,1),
+15.73
+],
+[
+"PETR4.SA",
+new Date(2069,0,1),
+15.73
+],
+[
+"PETR4.SA",
+new Date(2068,0,1),
+15.76
+],
+[
+"PETR4.SA",
+new Date(2067,0,1),
+15.75
+],
+[
+"PETR4.SA",
+new Date(2066,0,1),
+15.73
+],
+[
+"PETR4.SA",
+new Date(2065,0,1),
+15.76
+],
+[
+"PETR4.SA",
+new Date(2064,0,1),
+15.75
+],
+[
+"PETR4.SA",
+new Date(2063,0,1),
+15.76
+],
+[
+"PETR4.SA",
+new Date(2062,0,1),
+15.77
+],
+[
+"PETR4.SA",
+new Date(2061,0,1),
+15.77
+],
+[
+"PETR4.SA",
+new Date(2060,0,1),
+15.75
+],
+[
+"PETR4.SA",
+new Date(2059,0,1),
+15.74
+],
+[
+"PETR4.SA",
+new Date(2058,0,1),
+15.75
+],
+[
+"PETR4.SA",
+new Date(2057,0,1),
+15.75
+],
+[
+"PETR4.SA",
+new Date(2056,0,1),
+15.73
+],
+[
+"PETR4.SA",
+new Date(2055,0,1),
+15.73
+],
+[
+"PETR4.SA",
+new Date(2054,0,1),
+15.7
+],
+[
+"PETR4.SA",
+new Date(2053,0,1),
+15.73
+],
+[
+"PETR4.SA",
+new Date(2052,0,1),
+15.74
+],
+[
+"PETR4.SA",
+new Date(2051,0,1),
+15.74
+],
+[
+"PETR4.SA",
+new Date(2050,0,1),
+15.74
+],
+[
+"PETR4.SA",
+new Date(2049,0,1),
+15.74
+],
+[
+"PETR4.SA",
+new Date(2048,0,1),
+15.76
+],
+[
+"PETR4.SA",
+new Date(2047,0,1),
+15.74
+],
+[
+"PETR4.SA",
+new Date(2046,0,1),
+15.72
+],
+[
+"PETR4.SA",
+new Date(2045,0,1),
+15.72
+],
+[
+"PETR4.SA",
+new Date(2044,0,1),
+15.72
+],
+[
+"PETR4.SA",
+new Date(2043,0,1),
+15.7
+],
+[
+"PETR4.SA",
+new Date(2042,0,1),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2041,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2040,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2039,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2038,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2037,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2036,0,1),
+15.62
+],
+[
+"PETR4.SA",
+new Date(2035,0,1),
+15.63
+],
+[
+"PETR4.SA",
+new Date(2034,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2033,0,1),
+15.62
+],
+[
+"PETR4.SA",
+new Date(2032,0,1),
+15.6
+],
+[
+"PETR4.SA",
+new Date(2031,0,1),
+15.61
+],
+[
+"PETR4.SA",
+new Date(2030,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2029,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2028,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2027,0,1),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2026,0,1),
+15.65
+],
+[
+"PETR4.SA",
+new Date(2025,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2024,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2023,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2022,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2021,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2020,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2019,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2018,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2017,0,1),
+15.69
+],
+[
+"PETR4.SA",
+new Date(2016,0,1),
+15.69
+],
+[
+"PETR4.SA",
+new Date(2015,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2014,0,1),
+15.63
+],
+[
+"PETR4.SA",
+new Date(2013,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2012,0,1),
+15.65
+],
+[
+"PETR4.SA",
+new Date(2011,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2010,0,1),
+15.64
+],
+[
+"PETR4.SA",
+new Date(2009,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2008,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2007,0,1),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2006,0,1),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2005,0,1),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2004,0,1),
+15.65
+],
+[
+"PETR4.SA",
+new Date(2003,0,1),
+15.69
+],
+[
+"PETR4.SA",
+new Date(2002,0,1),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2001,0,1),
+15.69
+] 
+];
+data.addColumn('string','bond');
+data.addColumn('date','tempo');
+data.addColumn('number','cot');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartMotionChartIDcd71b36fce0() {
+var data = gvisDataMotionChartIDcd71b36fce0();
+var options = {};
+options["width"] = 900;
+options["height"] = 450;
+options["state"] = "";
+
+    var chart = new google.visualization.MotionChart(
+    document.getElementById('MotionChartIDcd71b36fce0')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "motionchart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartMotionChartIDcd71b36fce0);
+})();
+function displayChartMotionChartIDcd71b36fce0() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartIDcd71b36fce0"></script>
+ 
+<!-- divChart -->
+  
+<div id="MotionChartIDcd71b36fce0" 
   style="width: 900; height: 450;">
 </div>
 
@@ -3135,37 +4242,15 @@ callbacks.shift()();
 
 ## O que são Opções ?
 
-<br>
-<br>
-<br>
-<br>
-<p><center>
-<font color="gray" size="15" face="arial">
-<strong><b>
-Opções vs. Ações
-<br>
-<br>
-Call vs. Put
-</b></strong></font></center></p>
 
+> - Opções vs. Ações
 
---- .class #id 
-
-## Teoria - Movimento Browniano
-<br/>
-
-Um processo estocástico $\{ X(t), t \geq 0 \}$ com espaço de estados $S=R$ é Movimento Browniano se satisfaz:
-
-<br>
-
-1. $X(0) = 0$
-2. $X(t)$ tem incrementos independentes e estacionários
-3. $X(t+s) - X(s) \sim  N(0,t)$
+> - Call vs. Put
 
 
 --- .class #id  
 
-## Teoria - Black-Scholes (e Merton!!)
+## Black, Scholes (e Merton!!)
 
 <div class="col3">
 
@@ -3179,6 +4264,20 @@ Um processo estocástico $\{ X(t), t \geq 0 \}$ com espaço de estados $S=R$ é 
 </center></p>
 
 </div>
+
+
+--- .class #id 
+
+## Teoria - Movimento Browniano
+<br/>
+
+Um processo estocástico $\{ X(t), t \geq 0 \}$ com espaço de estados $S=R$ é Movimento Browniano se satisfaz:
+
+<br>
+
+> 1. $X(0) = 0$
+> 2. $X(t)$ tem incrementos independentes e estacionários
+> 3. $X(t+s) - X(s) \sim  N(0,t)$
 
 
 --- .class #id  
