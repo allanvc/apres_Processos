@@ -3185,7 +3185,6 @@ Um processo estocástico $\{ X(t), t \geq 0 \}$ com espaço de estados $S=R$ é 
 
 ## Teoria - Equação de Black-Scholes (2)
 
-<br>
 
 <p style="font-size:40px">
 
