@@ -1,0 +1,3480 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movimento Browniano e Mercado Financeiro</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Movimento Browniano e Mercado Financeiro">
+  <meta name="author" content="Caio Balena / Allan Vieira">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/prettify/css/solarized_light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+      <slide class="nobackground">
+    <article class="flexbox vcenter">
+      <span>
+        <img width='300px' src="assets/img/unb_big_logo.png">
+      </span>
+    </article>
+  </slide>
+    <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/est_logo.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Movimento Browniano e Mercado Financeiro</h1>
+    <h2>A Equação de Black-Scholes</h2>
+    <p>Caio Balena / Allan Vieira<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <!-- para alterar cor de fundo dos slides -->
+
+<style>
+.title-slide {
+  background-color: #FFFFFF; /* #EDE0CF; #CA9F9D*/
+}
+</style>
+
+<!-- Limit image width and height -->
+
+<style type="text/css">
+img {     
+  max-height: 400px;     
+  max-width: 450px; 
+}
+</style>
+
+<!-- criando um estilo css que divide os slides em 3 colunas - bem util! -->
+
+<!-- depois chamar com <div class ="col3"> (...) </div> -->
+
+<!-- https://stackoverflow.com/questions/31753897/2-column-section-in-r-markdown -->
+
+<style>
+  .col2 {
+    columns: 2 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+  }
+  .col3 {
+    columns: 3 100px;
+    -webkit-columns: 3 100px;
+    -moz-columns: 3 100px;
+  }
+</style>
+
+<h2>Movimento Browniano</h2>
+
+<p>Movimento Browniano como conhecemos:</p>
+
+<p><center><img src="./assets/img/brown_animation.gif" align="middle">
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Movimento Browniano - Mercado Financeiro</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><center><img src="./assets/img/wallstreet_bull(3).jpg" align="middle">
+</center></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><center><img src="./assets/img/bear_vs_bull.jpg" align="middle">
+</center></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Exemplo Movimento Browniano - Mercado Financeiro</h2>
+  </hgroup>
+  <article data-timings="">
+    <!-- MotionChart generated in R 3.4.2 by googleVis 0.6.2 package -->
+
+<!-- Tue Nov 14 10:31:30 2017 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataMotionChartID14962bdffa77 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"PETR4.SA",
+new Date(2017,10,10),
+16.72
+],
+[
+"PETR4.SA",
+new Date(2017,10,9),
+16.72
+],
+[
+"PETR4.SA",
+new Date(2017,10,8),
+16.95
+],
+[
+"PETR4.SA",
+new Date(2017,10,7),
+16.5
+],
+[
+"PETR4.SA",
+new Date(2017,10,6),
+17.43
+],
+[
+"PETR4.SA",
+new Date(2017,10,3),
+16.94
+],
+[
+"PETR4.SA",
+new Date(2017,10,1),
+16.9
+],
+[
+"PETR4.SA",
+new Date(2017,9,31),
+16.77
+],
+[
+"PETR4.SA",
+new Date(2017,9,30),
+16.78
+],
+[
+"PETR4.SA",
+new Date(2017,9,27),
+17.03
+],
+[
+"PETR4.SA",
+new Date(2017,9,26),
+16.73
+],
+[
+"PETR4.SA",
+new Date(2017,9,25),
+16.72
+],
+[
+"PETR4.SA",
+new Date(2017,9,24),
+16.51
+],
+[
+"PETR4.SA",
+new Date(2017,9,23),
+16.2
+],
+[
+"PETR4.SA",
+new Date(2017,9,20),
+16.22
+],
+[
+"PETR4.SA",
+new Date(2017,9,19),
+16.15
+],
+[
+"PETR4.SA",
+new Date(2017,9,18),
+16.16
+],
+[
+"PETR4.SA",
+new Date(2017,9,17),
+16.13
+],
+[
+"PETR4.SA",
+new Date(2017,9,16),
+16.12
+],
+[
+"PETR4.SA",
+new Date(2017,9,13),
+16.08
+],
+[
+"PETR4.SA",
+new Date(2017,9,11),
+16.08
+],
+[
+"PETR4.SA",
+new Date(2017,9,10),
+16.19
+],
+[
+"PETR4.SA",
+new Date(2017,9,9),
+15.89
+],
+[
+"PETR4.SA",
+new Date(2017,9,6),
+15.69
+],
+[
+"PETR4.SA",
+new Date(2017,9,5),
+15.9
+],
+[
+"PETR4.SA",
+new Date(2017,9,4),
+15.66
+],
+[
+"PETR4.SA",
+new Date(2017,9,3),
+15.98
+],
+[
+"PETR4.SA",
+new Date(2017,9,2),
+15.4
+],
+[
+"PETR4.SA",
+new Date(2017,8,29),
+15.3
+],
+[
+"PETR4.SA",
+new Date(2017,8,28),
+15.34
+],
+[
+"PETR4.SA",
+new Date(2017,8,27),
+15.31
+],
+[
+"PETR4.SA",
+new Date(2017,8,26),
+15.56
+],
+[
+"PETR4.SA",
+new Date(2017,8,25),
+15.84
+],
+[
+"PETR4.SA",
+new Date(2017,8,22),
+15.69
+],
+[
+"PETR4.SA",
+new Date(2017,8,21),
+15.67
+],
+[
+"PETR4.SA",
+new Date(2017,8,20),
+15.87
+],
+[
+"PETR4.SA",
+new Date(2017,8,19),
+15.14
+],
+[
+"PETR4.SA",
+new Date(2017,8,18),
+15.04
+],
+[
+"PETR4.SA",
+new Date(2017,8,15),
+15.04
+],
+[
+"PETR4.SA",
+new Date(2017,8,14),
+15.04
+],
+[
+"PETR4.SA",
+new Date(2017,8,13),
+15.03
+],
+[
+"PETR4.SA",
+new Date(2017,8,12),
+14.87
+],
+[
+"PETR4.SA",
+new Date(2017,8,11),
+14.99
+],
+[
+"PETR4.SA",
+new Date(2017,8,8),
+14.71
+],
+[
+"PETR4.SA",
+new Date(2017,8,6),
+15.02
+],
+[
+"PETR4.SA",
+new Date(2017,8,5),
+14.41
+],
+[
+"PETR4.SA",
+new Date(2017,8,4),
+14.17
+],
+[
+"PETR4.SA",
+new Date(2017,8,1),
+14.02
+],
+[
+"PETR4.SA",
+new Date(2017,7,31),
+13.65
+],
+[
+"PETR4.SA",
+new Date(2017,7,30),
+13.45
+],
+[
+"PETR4.SA",
+new Date(2017,7,29),
+13.85
+],
+[
+"PETR4.SA",
+new Date(2017,7,28),
+13.87
+],
+[
+"PETR4.SA",
+new Date(2017,7,25),
+13.88
+],
+[
+"PETR4.SA",
+new Date(2017,7,24),
+13.8
+],
+[
+"PETR4.SA",
+new Date(2017,7,23),
+13.76
+],
+[
+"PETR4.SA",
+new Date(2017,7,22),
+13.79
+],
+[
+"PETR4.SA",
+new Date(2017,7,21),
+13.34
+],
+[
+"PETR4.SA",
+new Date(2017,7,18),
+13.6
+],
+[
+"PETR4.SA",
+new Date(2017,7,17),
+13.05
+],
+[
+"PETR4.SA",
+new Date(2017,7,16),
+13.13
+],
+[
+"PETR4.SA",
+new Date(2017,7,15),
+13.15
+],
+[
+"PETR4.SA",
+new Date(2017,7,14),
+13.08
+],
+[
+"PETR4.SA",
+new Date(2017,7,11),
+12.95
+],
+[
+"PETR4.SA",
+new Date(2017,7,10),
+13.19
+],
+[
+"PETR4.SA",
+new Date(2017,7,9),
+13.52
+],
+[
+"PETR4.SA",
+new Date(2017,7,8),
+13.49
+],
+[
+"PETR4.SA",
+new Date(2017,7,7),
+13.55
+],
+[
+"PETR4.SA",
+new Date(2017,7,4),
+13.4
+],
+[
+"PETR4.SA",
+new Date(2017,7,3),
+13.31
+],
+[
+"PETR4.SA",
+new Date(2017,7,2),
+13.51
+],
+[
+"PETR4.SA",
+new Date(2017,7,1),
+13.12
+],
+[
+"PETR4.SA",
+new Date(2017,6,31),
+13.29
+],
+[
+"PETR4.SA",
+new Date(2017,6,28),
+13.13
+],
+[
+"PETR4.SA",
+new Date(2017,6,27),
+13
+],
+[
+"PETR4.SA",
+new Date(2017,6,26),
+12.98
+],
+[
+"PETR4.SA",
+new Date(2017,6,25),
+13.22
+],
+[
+"PETR4.SA",
+new Date(2017,6,24),
+12.88
+],
+[
+"PETR4.SA",
+new Date(2017,6,21),
+12.69
+],
+[
+"PETR4.SA",
+new Date(2017,6,20),
+13.1
+],
+[
+"PETR4.SA",
+new Date(2017,6,19),
+13.23
+],
+[
+"PETR4.SA",
+new Date(2017,6,18),
+12.94
+],
+[
+"PETR4.SA",
+new Date(2017,6,17),
+12.89
+],
+[
+"PETR4.SA",
+new Date(2017,6,14),
+13.05
+],
+[
+"PETR4.SA",
+new Date(2017,6,13),
+12.87
+],
+[
+"PETR4.SA",
+new Date(2017,6,12),
+12.94
+],
+[
+"PETR4.SA",
+new Date(2017,6,11),
+12.33
+],
+[
+"PETR4.SA",
+new Date(2017,6,10),
+11.98
+],
+[
+"PETR4.SA",
+new Date(2017,6,7),
+11.93
+],
+[
+"PETR4.SA",
+new Date(2017,6,6),
+12.17
+],
+[
+"PETR4.SA",
+new Date(2017,6,5),
+12.21
+],
+[
+"PETR4.SA",
+new Date(2017,6,4),
+12.43
+],
+[
+"PETR4.SA",
+new Date(2017,6,3),
+12.36
+],
+[
+"PETR4.SA",
+new Date(2017,5,30),
+12.37
+],
+[
+"PETR4.SA",
+new Date(2017,5,29),
+12.18
+],
+[
+"PETR4.SA",
+new Date(2017,5,28),
+12.08
+],
+[
+"PETR4.SA",
+new Date(2017,5,27),
+12.21
+],
+[
+"PETR4.SA",
+new Date(2017,5,26),
+12.27
+],
+[
+"PETR4.SA",
+new Date(2017,5,23),
+11.93
+],
+[
+"PETR4.SA",
+new Date(2017,5,22),
+12.04
+],
+[
+"PETR4.SA",
+new Date(2017,5,21),
+11.64
+],
+[
+"PETR4.SA",
+new Date(2017,5,20),
+11.86
+],
+[
+"PETR4.SA",
+new Date(2017,5,19),
+12.29
+],
+[
+"PETR4.SA",
+new Date(2017,5,16),
+12.28
+],
+[
+"PETR4.SA",
+new Date(2017,5,14),
+12.62
+],
+[
+"PETR4.SA",
+new Date(2017,5,13),
+12.94
+],
+[
+"PETR4.SA",
+new Date(2017,5,12),
+12.9
+],
+[
+"PETR4.SA",
+new Date(2017,5,9),
+12.85
+],
+[
+"PETR4.SA",
+new Date(2017,5,8),
+12.84
+],
+[
+"PETR4.SA",
+new Date(2017,5,7),
+12.87
+],
+[
+"PETR4.SA",
+new Date(2017,5,6),
+13.18
+],
+[
+"PETR4.SA",
+new Date(2017,5,5),
+13.18
+],
+[
+"PETR4.SA",
+new Date(2017,5,2),
+13.05
+],
+[
+"PETR4.SA",
+new Date(2017,5,1),
+12.82
+],
+[
+"PETR4.SA",
+new Date(2017,4,31),
+12.96
+],
+[
+"PETR4.SA",
+new Date(2017,4,30),
+13.36
+],
+[
+"PETR4.SA",
+new Date(2017,4,29),
+13.57
+],
+[
+"PETR4.SA",
+new Date(2017,4,26),
+13.68
+],
+[
+"PETR4.SA",
+new Date(2017,4,25),
+13.74
+],
+[
+"PETR4.SA",
+new Date(2017,4,24),
+13.94
+],
+[
+"PETR4.SA",
+new Date(2017,4,23),
+13.49
+],
+[
+"PETR4.SA",
+new Date(2017,4,22),
+13.4
+],
+[
+"PETR4.SA",
+new Date(2017,4,19),
+13.62
+],
+[
+"PETR4.SA",
+new Date(2017,4,18),
+13.15
+],
+[
+"PETR4.SA",
+new Date(2017,4,17),
+15.61
+],
+[
+"PETR4.SA",
+new Date(2017,4,16),
+15.7
+],
+[
+"PETR4.SA",
+new Date(2017,4,15),
+15.68
+],
+[
+"PETR4.SA",
+new Date(2017,4,12),
+15.45
+],
+[
+"PETR4.SA",
+new Date(2017,4,11),
+14.82
+],
+[
+"PETR4.SA",
+new Date(2017,4,10),
+14.73
+],
+[
+"PETR4.SA",
+new Date(2017,4,9),
+14.14
+],
+[
+"PETR4.SA",
+new Date(2017,4,8),
+14.08
+],
+[
+"PETR4.SA",
+new Date(2017,4,5),
+14.21
+],
+[
+"PETR4.SA",
+new Date(2017,4,4),
+13.6
+],
+[
+"PETR4.SA",
+new Date(2017,4,3),
+14.16
+],
+[
+"PETR4.SA",
+new Date(2017,4,2),
+13.99
+],
+[
+"PETR4.SA",
+new Date(2017,3,28),
+13.97
+],
+[
+"PETR4.SA",
+new Date(2017,3,27),
+13.73
+],
+[
+"PETR4.SA",
+new Date(2017,3,26),
+14
+],
+[
+"PETR4.SA",
+new Date(2017,3,25),
+14.34
+],
+[
+"PETR4.SA",
+new Date(2017,3,24),
+14.03
+],
+[
+"PETR4.SA",
+new Date(2017,3,20),
+13.88
+],
+[
+"PETR4.SA",
+new Date(2017,3,19),
+13.6
+],
+[
+"PETR4.SA",
+new Date(2017,3,18),
+14.1
+],
+[
+"PETR4.SA",
+new Date(2017,3,17),
+14.28
+],
+[
+"PETR4.SA",
+new Date(2017,3,13),
+14.08
+],
+[
+"PETR4.SA",
+new Date(2017,3,12),
+14.65
+],
+[
+"PETR4.SA",
+new Date(2017,3,11),
+14.68
+],
+[
+"PETR4.SA",
+new Date(2017,3,10),
+14.94
+],
+[
+"PETR4.SA",
+new Date(2017,3,7),
+14.7
+],
+[
+"PETR4.SA",
+new Date(2017,3,6),
+14.53
+],
+[
+"PETR4.SA",
+new Date(2017,3,5),
+14.57
+],
+[
+"PETR4.SA",
+new Date(2017,3,4),
+14.85
+],
+[
+"PETR4.SA",
+new Date(2017,3,3),
+14.67
+],
+[
+"PETR4.SA",
+new Date(2017,2,31),
+14.49
+],
+[
+"PETR4.SA",
+new Date(2017,2,30),
+14.45
+],
+[
+"PETR4.SA",
+new Date(2017,2,29),
+14.45
+],
+[
+"PETR4.SA",
+new Date(2017,2,28),
+13.95
+],
+[
+"PETR4.SA",
+new Date(2017,2,27),
+13.77
+],
+[
+"PETR4.SA",
+new Date(2017,2,24),
+13.48
+],
+[
+"PETR4.SA",
+new Date(2017,2,23),
+13.57
+],
+[
+"PETR4.SA",
+new Date(2017,2,22),
+13.66
+],
+[
+"PETR4.SA",
+new Date(2017,2,21),
+13
+],
+[
+"PETR4.SA",
+new Date(2017,2,20),
+13.6
+],
+[
+"PETR4.SA",
+new Date(2017,2,17),
+13.16
+],
+[
+"PETR4.SA",
+new Date(2017,2,16),
+13.71
+],
+[
+"PETR4.SA",
+new Date(2017,2,15),
+14.2
+],
+[
+"PETR4.SA",
+new Date(2017,2,14),
+13.59
+],
+[
+"PETR4.SA",
+new Date(2017,2,13),
+14.37
+],
+[
+"PETR4.SA",
+new Date(2017,2,10),
+14.31
+],
+[
+"PETR4.SA",
+new Date(2017,2,9),
+14.5
+],
+[
+"PETR4.SA",
+new Date(2017,2,8),
+14.55
+],
+[
+"PETR4.SA",
+new Date(2017,2,7),
+15.18
+],
+[
+"PETR4.SA",
+new Date(2017,2,6),
+15.1
+],
+[
+"PETR4.SA",
+new Date(2017,2,3),
+15.32
+],
+[
+"PETR4.SA",
+new Date(2017,2,2),
+15.11
+],
+[
+"PETR4.SA",
+new Date(2017,2,1),
+15.52
+],
+[
+"PETR4.SA",
+new Date(2017,1,24),
+15.18
+],
+[
+"PETR4.SA",
+new Date(2017,1,23),
+15.56
+],
+[
+"PETR4.SA",
+new Date(2017,1,22),
+15.7
+],
+[
+"PETR4.SA",
+new Date(2017,1,21),
+16.09
+],
+[
+"PETR4.SA",
+new Date(2017,1,20),
+15.92
+],
+[
+"PETR4.SA",
+new Date(2017,1,17),
+15.61
+],
+[
+"PETR4.SA",
+new Date(2017,1,16),
+15.86
+],
+[
+"PETR4.SA",
+new Date(2017,1,15),
+15.84
+],
+[
+"PETR4.SA",
+new Date(2017,1,14),
+15.82
+],
+[
+"PETR4.SA",
+new Date(2017,1,13),
+15.62
+],
+[
+"PETR4.SA",
+new Date(2017,1,10),
+15.58
+],
+[
+"PETR4.SA",
+new Date(2017,1,9),
+15.05
+],
+[
+"PETR4.SA",
+new Date(2017,1,8),
+15.1
+],
+[
+"PETR4.SA",
+new Date(2017,1,7),
+14.7
+],
+[
+"PETR4.SA",
+new Date(2017,1,6),
+14.96
+],
+[
+"PETR4.SA",
+new Date(2017,1,3),
+15.34
+],
+[
+"PETR4.SA",
+new Date(2017,1,2),
+14.89
+],
+[
+"PETR4.SA",
+new Date(2017,1,1),
+15.02
+],
+[
+"PETR4.SA",
+new Date(2017,0,31),
+15.02
+],
+[
+"PETR4.SA",
+new Date(2017,0,30),
+14.84
+],
+[
+"PETR4.SA",
+new Date(2017,0,27),
+15.62
+],
+[
+"PETR4.SA",
+new Date(2017,0,26),
+15.8
+],
+[
+"LAME4.SA",
+new Date(2017,10,10),
+15.31
+],
+[
+"LAME4.SA",
+new Date(2017,10,9),
+15.44
+],
+[
+"LAME4.SA",
+new Date(2017,10,8),
+15.83
+],
+[
+"LAME4.SA",
+new Date(2017,10,7),
+15.35
+],
+[
+"LAME4.SA",
+new Date(2017,10,6),
+15.76
+],
+[
+"LAME4.SA",
+new Date(2017,10,3),
+15.85
+],
+[
+"LAME4.SA",
+new Date(2017,10,1),
+17.08
+],
+[
+"LAME4.SA",
+new Date(2017,9,31),
+17.58
+],
+[
+"LAME4.SA",
+new Date(2017,9,30),
+17.25
+],
+[
+"LAME4.SA",
+new Date(2017,9,27),
+17.77
+],
+[
+"LAME4.SA",
+new Date(2017,9,26),
+17.66
+],
+[
+"LAME4.SA",
+new Date(2017,9,25),
+18.03
+],
+[
+"LAME4.SA",
+new Date(2017,9,24),
+18
+],
+[
+"LAME4.SA",
+new Date(2017,9,23),
+18.01
+],
+[
+"LAME4.SA",
+new Date(2017,9,20),
+18.58
+],
+[
+"LAME4.SA",
+new Date(2017,9,19),
+18.39
+],
+[
+"LAME4.SA",
+new Date(2017,9,18),
+18.39
+],
+[
+"LAME4.SA",
+new Date(2017,9,17),
+17.99
+],
+[
+"LAME4.SA",
+new Date(2017,9,16),
+18.6
+],
+[
+"LAME4.SA",
+new Date(2017,9,13),
+19.22
+],
+[
+"LAME4.SA",
+new Date(2017,9,11),
+19.86
+],
+[
+"LAME4.SA",
+new Date(2017,9,10),
+19.94
+],
+[
+"LAME4.SA",
+new Date(2017,9,9),
+19.72
+],
+[
+"LAME4.SA",
+new Date(2017,9,6),
+20.01
+],
+[
+"LAME4.SA",
+new Date(2017,9,5),
+20.35
+],
+[
+"LAME4.SA",
+new Date(2017,9,4),
+20.2
+],
+[
+"LAME4.SA",
+new Date(2017,9,3),
+19.64
+],
+[
+"LAME4.SA",
+new Date(2017,9,2),
+19.12
+],
+[
+"LAME4.SA",
+new Date(2017,8,29),
+19.25
+],
+[
+"LAME4.SA",
+new Date(2017,8,28),
+18.73
+],
+[
+"LAME4.SA",
+new Date(2017,8,27),
+18.6
+],
+[
+"LAME4.SA",
+new Date(2017,8,26),
+19.02
+],
+[
+"LAME4.SA",
+new Date(2017,8,25),
+19.02
+],
+[
+"LAME4.SA",
+new Date(2017,8,22),
+19.53
+],
+[
+"LAME4.SA",
+new Date(2017,8,21),
+19.36
+],
+[
+"LAME4.SA",
+new Date(2017,8,20),
+19.67
+],
+[
+"LAME4.SA",
+new Date(2017,8,19),
+20.12
+],
+[
+"LAME4.SA",
+new Date(2017,8,18),
+20.14
+],
+[
+"LAME4.SA",
+new Date(2017,8,15),
+19.91
+],
+[
+"LAME4.SA",
+new Date(2017,8,14),
+19.51
+],
+[
+"LAME4.SA",
+new Date(2017,8,13),
+19.08
+],
+[
+"LAME4.SA",
+new Date(2017,8,12),
+18.9
+],
+[
+"LAME4.SA",
+new Date(2017,8,11),
+19.06
+],
+[
+"LAME4.SA",
+new Date(2017,8,8),
+18.8
+],
+[
+"LAME4.SA",
+new Date(2017,8,6),
+18.7
+],
+[
+"LAME4.SA",
+new Date(2017,8,5),
+18.13
+],
+[
+"LAME4.SA",
+new Date(2017,8,4),
+18.11
+],
+[
+"LAME4.SA",
+new Date(2017,8,1),
+17.86
+],
+[
+"LAME4.SA",
+new Date(2017,7,31),
+17.77
+],
+[
+"LAME4.SA",
+new Date(2017,7,30),
+17.94
+],
+[
+"LAME4.SA",
+new Date(2017,7,29),
+17.89
+],
+[
+"LAME4.SA",
+new Date(2017,7,28),
+17.68
+],
+[
+"LAME4.SA",
+new Date(2017,7,25),
+17.79
+],
+[
+"LAME4.SA",
+new Date(2017,7,24),
+17.63
+],
+[
+"LAME4.SA",
+new Date(2017,7,23),
+17.2
+],
+[
+"LAME4.SA",
+new Date(2017,7,22),
+17.13
+],
+[
+"LAME4.SA",
+new Date(2017,7,21),
+17.04
+],
+[
+"LAME4.SA",
+new Date(2017,7,18),
+16.93
+],
+[
+"LAME4.SA",
+new Date(2017,7,17),
+16.81
+],
+[
+"LAME4.SA",
+new Date(2017,7,16),
+16.52
+],
+[
+"LAME4.SA",
+new Date(2017,7,15),
+16.49
+],
+[
+"LAME4.SA",
+new Date(2017,7,14),
+16.38
+],
+[
+"LAME4.SA",
+new Date(2017,7,11),
+15.82
+],
+[
+"LAME4.SA",
+new Date(2017,7,10),
+15.25
+],
+[
+"LAME4.SA",
+new Date(2017,7,9),
+15.56
+],
+[
+"LAME4.SA",
+new Date(2017,7,8),
+15.7
+],
+[
+"LAME4.SA",
+new Date(2017,7,7),
+15.95
+],
+[
+"LAME4.SA",
+new Date(2017,7,4),
+16.07
+],
+[
+"LAME4.SA",
+new Date(2017,7,3),
+16.09
+],
+[
+"LAME4.SA",
+new Date(2017,7,2),
+16.15
+],
+[
+"LAME4.SA",
+new Date(2017,7,1),
+15.9
+],
+[
+"LAME4.SA",
+new Date(2017,6,31),
+15.67
+],
+[
+"LAME4.SA",
+new Date(2017,6,28),
+15.55
+],
+[
+"LAME4.SA",
+new Date(2017,6,27),
+15.5
+],
+[
+"LAME4.SA",
+new Date(2017,6,26),
+15.18
+],
+[
+"LAME4.SA",
+new Date(2017,6,25),
+15.22
+],
+[
+"LAME4.SA",
+new Date(2017,6,24),
+15.02
+],
+[
+"LAME4.SA",
+new Date(2017,6,21),
+14.76
+],
+[
+"LAME4.SA",
+new Date(2017,6,20),
+14.85
+],
+[
+"LAME4.SA",
+new Date(2017,6,19),
+14.65
+],
+[
+"LAME4.SA",
+new Date(2017,6,18),
+14.94
+],
+[
+"LAME4.SA",
+new Date(2017,6,17),
+14.98
+],
+[
+"LAME4.SA",
+new Date(2017,6,14),
+15.14
+],
+[
+"LAME4.SA",
+new Date(2017,6,13),
+15.2
+],
+[
+"LAME4.SA",
+new Date(2017,6,12),
+15.27
+],
+[
+"LAME4.SA",
+new Date(2017,6,11),
+14.88
+],
+[
+"LAME4.SA",
+new Date(2017,6,10),
+14.59
+],
+[
+"LAME4.SA",
+new Date(2017,6,7),
+14.35
+],
+[
+"LAME4.SA",
+new Date(2017,6,6),
+13.75
+],
+[
+"LAME4.SA",
+new Date(2017,6,5),
+13.97
+],
+[
+"LAME4.SA",
+new Date(2017,6,4),
+13.85
+],
+[
+"LAME4.SA",
+new Date(2017,6,3),
+13.88
+],
+[
+"LAME4.SA",
+new Date(2017,5,30),
+14
+],
+[
+"LAME4.SA",
+new Date(2017,5,29),
+13.73
+],
+[
+"LAME4.SA",
+new Date(2017,5,28),
+13.75
+],
+[
+"LAME4.SA",
+new Date(2017,5,27),
+13.69
+],
+[
+"LAME4.SA",
+new Date(2017,5,26),
+13.9
+],
+[
+"LAME4.SA",
+new Date(2017,5,23),
+13.5
+],
+[
+"LAME4.SA",
+new Date(2017,5,22),
+13.25
+],
+[
+"LAME4.SA",
+new Date(2017,5,21),
+13.42
+],
+[
+"LAME4.SA",
+new Date(2017,5,20),
+13.6
+],
+[
+"LAME4.SA",
+new Date(2017,5,19),
+13.88
+],
+[
+"LAME4.SA",
+new Date(2017,5,16),
+13.9
+],
+[
+"LAME4.SA",
+new Date(2017,5,14),
+14.27
+],
+[
+"LAME4.SA",
+new Date(2017,5,13),
+14.25
+],
+[
+"LAME4.SA",
+new Date(2017,5,12),
+14.2
+],
+[
+"LAME4.SA",
+new Date(2017,5,9),
+14.4
+],
+[
+"LAME4.SA",
+new Date(2017,5,8),
+14.45
+],
+[
+"LAME4.SA",
+new Date(2017,5,7),
+14.65
+],
+[
+"LAME4.SA",
+new Date(2017,5,6),
+14.65
+],
+[
+"LAME4.SA",
+new Date(2017,5,5),
+14.43
+],
+[
+"LAME4.SA",
+new Date(2017,5,2),
+14.48
+],
+[
+"LAME4.SA",
+new Date(2017,5,1),
+14.33
+],
+[
+"LAME4.SA",
+new Date(2017,4,31),
+14.6
+],
+[
+"LAME4.SA",
+new Date(2017,4,30),
+14.89
+],
+[
+"LAME4.SA",
+new Date(2017,4,29),
+15.04
+],
+[
+"LAME4.SA",
+new Date(2017,4,26),
+14.93
+],
+[
+"LAME4.SA",
+new Date(2017,4,25),
+14.48
+],
+[
+"LAME4.SA",
+new Date(2017,4,24),
+14.56
+],
+[
+"LAME4.SA",
+new Date(2017,4,23),
+14.44
+],
+[
+"LAME4.SA",
+new Date(2017,4,22),
+14.01
+],
+[
+"LAME4.SA",
+new Date(2017,4,19),
+14.45
+],
+[
+"LAME4.SA",
+new Date(2017,4,18),
+14.4
+],
+[
+"LAME4.SA",
+new Date(2017,4,17),
+17.01
+],
+[
+"LAME4.SA",
+new Date(2017,4,16),
+17.08
+],
+[
+"LAME4.SA",
+new Date(2017,4,15),
+17.1
+],
+[
+"LAME4.SA",
+new Date(2017,4,12),
+17.15
+],
+[
+"LAME4.SA",
+new Date(2017,4,11),
+17.73
+],
+[
+"LAME4.SA",
+new Date(2017,4,10),
+18
+],
+[
+"LAME4.SA",
+new Date(2017,4,9),
+17.34
+],
+[
+"LAME4.SA",
+new Date(2017,4,8),
+17.35
+],
+[
+"LAME4.SA",
+new Date(2017,4,5),
+17.5
+],
+[
+"LAME4.SA",
+new Date(2017,4,4),
+17.6
+],
+[
+"LAME4.SA",
+new Date(2017,4,3),
+18.03
+],
+[
+"LAME4.SA",
+new Date(2017,4,2),
+18.08
+],
+[
+"LAME4.SA",
+new Date(2017,3,28),
+16.84
+],
+[
+"LAME4.SA",
+new Date(2017,3,27),
+16.59
+],
+[
+"LAME4.SA",
+new Date(2017,3,26),
+16.75
+],
+[
+"LAME4.SA",
+new Date(2017,3,25),
+16.7
+],
+[
+"LAME4.SA",
+new Date(2017,3,24),
+16.66
+],
+[
+"LAME4.SA",
+new Date(2017,3,20),
+16.4
+],
+[
+"LAME4.SA",
+new Date(2017,3,19),
+16.01
+],
+[
+"LAME4.SA",
+new Date(2017,3,18),
+16.21
+],
+[
+"LAME4.SA",
+new Date(2017,3,17),
+16.05
+],
+[
+"LAME4.SA",
+new Date(2017,3,13),
+15.64
+],
+[
+"LAME4.SA",
+new Date(2017,3,12),
+15.9
+],
+[
+"LAME4.SA",
+new Date(2017,3,11),
+16.13
+],
+[
+"LAME4.SA",
+new Date(2017,3,10),
+16.15
+],
+[
+"LAME4.SA",
+new Date(2017,3,7),
+16.15
+],
+[
+"LAME4.SA",
+new Date(2017,3,6),
+15.9
+],
+[
+"LAME4.SA",
+new Date(2017,3,5),
+15.99
+],
+[
+"LAME4.SA",
+new Date(2017,3,4),
+16.11
+],
+[
+"LAME4.SA",
+new Date(2017,3,3),
+16.25
+],
+[
+"LAME4.SA",
+new Date(2017,2,31),
+16.36
+],
+[
+"LAME4.SA",
+new Date(2017,2,30),
+16.42
+],
+[
+"LAME4.SA",
+new Date(2017,2,29),
+16.45
+],
+[
+"LAME4.SA",
+new Date(2017,2,28),
+16.44
+],
+[
+"LAME4.SA",
+new Date(2017,2,27),
+16.06
+],
+[
+"LAME4.SA",
+new Date(2017,2,24),
+16.1
+],
+[
+"LAME4.SA",
+new Date(2017,2,23),
+15.9
+],
+[
+"LAME4.SA",
+new Date(2017,2,22),
+15.58
+],
+[
+"LAME4.SA",
+new Date(2017,2,21),
+15.48
+],
+[
+"LAME4.SA",
+new Date(2017,2,20),
+15.9
+],
+[
+"LAME4.SA",
+new Date(2017,2,17),
+15.65
+],
+[
+"LAME4.SA",
+new Date(2017,2,16),
+16.08
+],
+[
+"LAME4.SA",
+new Date(2017,2,15),
+15.91
+],
+[
+"LAME4.SA",
+new Date(2017,2,14),
+15.6
+],
+[
+"LAME4.SA",
+new Date(2017,2,13),
+15.86
+],
+[
+"LAME4.SA",
+new Date(2017,2,10),
+15.5
+],
+[
+"LAME4.SA",
+new Date(2017,2,9),
+15.8
+],
+[
+"LAME4.SA",
+new Date(2017,2,8),
+16.1
+],
+[
+"LAME4.SA",
+new Date(2017,2,7),
+16.94
+],
+[
+"LAME4.SA",
+new Date(2017,2,6),
+17.15
+],
+[
+"LAME4.SA",
+new Date(2017,2,3),
+16.62
+],
+[
+"LAME4.SA",
+new Date(2017,2,2),
+16.6
+],
+[
+"LAME4.SA",
+new Date(2017,2,1),
+16.65
+],
+[
+"LAME4.SA",
+new Date(2017,1,24),
+16.4
+],
+[
+"LAME4.SA",
+new Date(2017,1,23),
+16.92
+],
+[
+"LAME4.SA",
+new Date(2017,1,22),
+16.92
+],
+[
+"LAME4.SA",
+new Date(2017,1,21),
+16.9
+],
+[
+"LAME4.SA",
+new Date(2017,1,20),
+17.2
+],
+[
+"LAME4.SA",
+new Date(2017,1,17),
+16.76
+],
+[
+"LAME4.SA",
+new Date(2017,1,16),
+16.3
+],
+[
+"LAME4.SA",
+new Date(2017,1,15),
+16.2
+],
+[
+"LAME4.SA",
+new Date(2017,1,14),
+16.8
+],
+[
+"LAME4.SA",
+new Date(2017,1,13),
+17
+],
+[
+"LAME4.SA",
+new Date(2017,1,10),
+17
+],
+[
+"LAME4.SA",
+new Date(2017,1,9),
+16.96
+],
+[
+"LAME4.SA",
+new Date(2017,1,8),
+16.93
+],
+[
+"LAME4.SA",
+new Date(2017,1,7),
+16.94
+],
+[
+"LAME4.SA",
+new Date(2017,1,6),
+16.91
+],
+[
+"LAME4.SA",
+new Date(2017,1,3),
+17
+],
+[
+"LAME4.SA",
+new Date(2017,1,2),
+16.5
+],
+[
+"LAME4.SA",
+new Date(2017,1,1),
+16.75
+],
+[
+"LAME4.SA",
+new Date(2017,0,31),
+16.73
+],
+[
+"LAME4.SA",
+new Date(2017,0,30),
+16.92
+],
+[
+"LAME4.SA",
+new Date(2017,0,27),
+17.45
+],
+[
+"LAME4.SA",
+new Date(2017,0,26),
+17.57
+],
+[
+"ABEV3.SA",
+new Date(2017,10,10),
+20.21
+],
+[
+"ABEV3.SA",
+new Date(2017,10,9),
+20.22
+],
+[
+"ABEV3.SA",
+new Date(2017,10,8),
+20.27
+],
+[
+"ABEV3.SA",
+new Date(2017,10,7),
+20.2
+],
+[
+"ABEV3.SA",
+new Date(2017,10,6),
+20.54
+],
+[
+"ABEV3.SA",
+new Date(2017,10,3),
+20.6
+],
+[
+"ABEV3.SA",
+new Date(2017,10,1),
+20.74
+],
+[
+"ABEV3.SA",
+new Date(2017,9,31),
+20.9
+],
+[
+"ABEV3.SA",
+new Date(2017,9,30),
+20.96
+],
+[
+"ABEV3.SA",
+new Date(2017,9,27),
+20.91
+],
+[
+"ABEV3.SA",
+new Date(2017,9,26),
+21.04
+],
+[
+"ABEV3.SA",
+new Date(2017,9,25),
+21.19
+],
+[
+"ABEV3.SA",
+new Date(2017,9,24),
+21.32
+],
+[
+"ABEV3.SA",
+new Date(2017,9,23),
+21.3
+],
+[
+"ABEV3.SA",
+new Date(2017,9,20),
+21.53
+],
+[
+"ABEV3.SA",
+new Date(2017,9,19),
+21.83
+],
+[
+"ABEV3.SA",
+new Date(2017,9,18),
+21.78
+],
+[
+"ABEV3.SA",
+new Date(2017,9,17),
+21.75
+],
+[
+"ABEV3.SA",
+new Date(2017,9,16),
+21.92
+],
+[
+"ABEV3.SA",
+new Date(2017,9,13),
+22.13
+],
+[
+"ABEV3.SA",
+new Date(2017,9,11),
+21.63
+],
+[
+"ABEV3.SA",
+new Date(2017,9,10),
+21.56
+],
+[
+"ABEV3.SA",
+new Date(2017,9,9),
+21.07
+],
+[
+"ABEV3.SA",
+new Date(2017,9,6),
+21.07
+],
+[
+"ABEV3.SA",
+new Date(2017,9,5),
+21.23
+],
+[
+"ABEV3.SA",
+new Date(2017,9,4),
+21.2
+],
+[
+"ABEV3.SA",
+new Date(2017,9,3),
+21.42
+],
+[
+"ABEV3.SA",
+new Date(2017,9,2),
+20.7
+],
+[
+"ABEV3.SA",
+new Date(2017,8,29),
+21.04
+],
+[
+"ABEV3.SA",
+new Date(2017,8,28),
+21.06
+],
+[
+"ABEV3.SA",
+new Date(2017,8,27),
+21.1
+],
+[
+"ABEV3.SA",
+new Date(2017,8,26),
+21.18
+],
+[
+"ABEV3.SA",
+new Date(2017,8,25),
+21.5
+],
+[
+"ABEV3.SA",
+new Date(2017,8,22),
+21.52
+],
+[
+"ABEV3.SA",
+new Date(2017,8,21),
+21.36
+],
+[
+"ABEV3.SA",
+new Date(2017,8,20),
+21.48
+],
+[
+"ABEV3.SA",
+new Date(2017,8,19),
+21.4
+],
+[
+"ABEV3.SA",
+new Date(2017,8,18),
+21.2
+],
+[
+"ABEV3.SA",
+new Date(2017,8,15),
+21.46
+],
+[
+"ABEV3.SA",
+new Date(2017,8,14),
+21.19
+],
+[
+"ABEV3.SA",
+new Date(2017,8,13),
+21.18
+],
+[
+"ABEV3.SA",
+new Date(2017,8,12),
+21.01
+],
+[
+"ABEV3.SA",
+new Date(2017,8,11),
+20.26
+],
+[
+"ABEV3.SA",
+new Date(2017,8,8),
+20.1
+],
+[
+"ABEV3.SA",
+new Date(2017,8,6),
+20.13
+],
+[
+"ABEV3.SA",
+new Date(2017,8,5),
+19.82
+],
+[
+"ABEV3.SA",
+new Date(2017,8,4),
+19.73
+],
+[
+"ABEV3.SA",
+new Date(2017,8,1),
+19.76
+],
+[
+"ABEV3.SA",
+new Date(2017,7,31),
+19.86
+],
+[
+"ABEV3.SA",
+new Date(2017,7,30),
+19.88
+],
+[
+"ABEV3.SA",
+new Date(2017,7,29),
+19.9
+],
+[
+"ABEV3.SA",
+new Date(2017,7,28),
+19.85
+],
+[
+"ABEV3.SA",
+new Date(2017,7,25),
+19.85
+],
+[
+"ABEV3.SA",
+new Date(2017,7,24),
+19.8
+],
+[
+"ABEV3.SA",
+new Date(2017,7,23),
+19.84
+],
+[
+"ABEV3.SA",
+new Date(2017,7,22),
+19.75
+],
+[
+"ABEV3.SA",
+new Date(2017,7,21),
+19.74
+],
+[
+"ABEV3.SA",
+new Date(2017,7,18),
+19.76
+],
+[
+"ABEV3.SA",
+new Date(2017,7,17),
+19.79
+],
+[
+"ABEV3.SA",
+new Date(2017,7,16),
+19.81
+],
+[
+"ABEV3.SA",
+new Date(2017,7,15),
+19.78
+],
+[
+"ABEV3.SA",
+new Date(2017,7,14),
+19.71
+],
+[
+"ABEV3.SA",
+new Date(2017,7,11),
+19.52
+],
+[
+"ABEV3.SA",
+new Date(2017,7,10),
+19.4
+],
+[
+"ABEV3.SA",
+new Date(2017,7,9),
+19.42
+],
+[
+"ABEV3.SA",
+new Date(2017,7,8),
+19.39
+],
+[
+"ABEV3.SA",
+new Date(2017,7,7),
+19.35
+],
+[
+"ABEV3.SA",
+new Date(2017,7,4),
+19.26
+],
+[
+"ABEV3.SA",
+new Date(2017,7,3),
+19.26
+],
+[
+"ABEV3.SA",
+new Date(2017,7,2),
+19.4
+],
+[
+"ABEV3.SA",
+new Date(2017,7,1),
+19.24
+],
+[
+"ABEV3.SA",
+new Date(2017,6,31),
+19.15
+],
+[
+"ABEV3.SA",
+new Date(2017,6,28),
+19.1
+],
+[
+"ABEV3.SA",
+new Date(2017,6,27),
+19.11
+],
+[
+"ABEV3.SA",
+new Date(2017,6,26),
+18.83
+],
+[
+"ABEV3.SA",
+new Date(2017,6,25),
+18.88
+],
+[
+"ABEV3.SA",
+new Date(2017,6,24),
+18.82
+],
+[
+"ABEV3.SA",
+new Date(2017,6,21),
+18.81
+],
+[
+"ABEV3.SA",
+new Date(2017,6,20),
+18.78
+],
+[
+"ABEV3.SA",
+new Date(2017,6,19),
+18.82
+],
+[
+"ABEV3.SA",
+new Date(2017,6,18),
+18.75
+],
+[
+"ABEV3.SA",
+new Date(2017,6,17),
+18.84
+],
+[
+"ABEV3.SA",
+new Date(2017,6,14),
+18.75
+],
+[
+"ABEV3.SA",
+new Date(2017,6,13),
+18.68
+],
+[
+"ABEV3.SA",
+new Date(2017,6,12),
+18.65
+],
+[
+"ABEV3.SA",
+new Date(2017,6,11),
+18.52
+],
+[
+"ABEV3.SA",
+new Date(2017,6,10),
+18.31
+],
+[
+"ABEV3.SA",
+new Date(2017,6,7),
+18.02
+],
+[
+"ABEV3.SA",
+new Date(2017,6,6),
+17.78
+],
+[
+"ABEV3.SA",
+new Date(2017,6,5),
+18.22
+],
+[
+"ABEV3.SA",
+new Date(2017,6,4),
+18.24
+],
+[
+"ABEV3.SA",
+new Date(2017,6,3),
+18.28
+],
+[
+"ABEV3.SA",
+new Date(2017,5,30),
+18.31
+],
+[
+"ABEV3.SA",
+new Date(2017,5,29),
+18.25
+],
+[
+"ABEV3.SA",
+new Date(2017,5,28),
+18.3
+],
+[
+"ABEV3.SA",
+new Date(2017,5,27),
+18.29
+],
+[
+"ABEV3.SA",
+new Date(2017,5,26),
+18.27
+],
+[
+"ABEV3.SA",
+new Date(2017,5,23),
+18.24
+],
+[
+"ABEV3.SA",
+new Date(2017,5,22),
+18.2
+],
+[
+"ABEV3.SA",
+new Date(2017,5,21),
+18.13
+],
+[
+"ABEV3.SA",
+new Date(2017,5,20),
+18.07
+],
+[
+"ABEV3.SA",
+new Date(2017,5,19),
+17.87
+],
+[
+"ABEV3.SA",
+new Date(2017,5,16),
+17.78
+],
+[
+"ABEV3.SA",
+new Date(2017,5,14),
+18.18
+],
+[
+"ABEV3.SA",
+new Date(2017,5,13),
+18.39
+],
+[
+"ABEV3.SA",
+new Date(2017,5,12),
+18.08
+],
+[
+"ABEV3.SA",
+new Date(2017,5,9),
+18.11
+],
+[
+"ABEV3.SA",
+new Date(2017,5,8),
+18.53
+],
+[
+"ABEV3.SA",
+new Date(2017,5,7),
+18.84
+],
+[
+"ABEV3.SA",
+new Date(2017,5,6),
+19.07
+],
+[
+"ABEV3.SA",
+new Date(2017,5,5),
+18.91
+],
+[
+"ABEV3.SA",
+new Date(2017,5,2),
+18.57
+],
+[
+"ABEV3.SA",
+new Date(2017,5,1),
+18.55
+],
+[
+"ABEV3.SA",
+new Date(2017,4,31),
+18.71
+],
+[
+"ABEV3.SA",
+new Date(2017,4,30),
+18.79
+],
+[
+"ABEV3.SA",
+new Date(2017,4,29),
+18.88
+],
+[
+"ABEV3.SA",
+new Date(2017,4,26),
+19.03
+],
+[
+"ABEV3.SA",
+new Date(2017,4,25),
+18.92
+],
+[
+"ABEV3.SA",
+new Date(2017,4,24),
+18.86
+],
+[
+"ABEV3.SA",
+new Date(2017,4,23),
+18.89
+],
+[
+"ABEV3.SA",
+new Date(2017,4,22),
+18.57
+],
+[
+"ABEV3.SA",
+new Date(2017,4,19),
+18.62
+],
+[
+"ABEV3.SA",
+new Date(2017,4,18),
+18.8
+],
+[
+"ABEV3.SA",
+new Date(2017,4,17),
+19.64
+],
+[
+"ABEV3.SA",
+new Date(2017,4,16),
+19.82
+],
+[
+"ABEV3.SA",
+new Date(2017,4,15),
+19.74
+],
+[
+"ABEV3.SA",
+new Date(2017,4,12),
+19.69
+],
+[
+"ABEV3.SA",
+new Date(2017,4,11),
+19.53
+],
+[
+"ABEV3.SA",
+new Date(2017,4,10),
+19.19
+],
+[
+"ABEV3.SA",
+new Date(2017,4,9),
+18.95
+],
+[
+"ABEV3.SA",
+new Date(2017,4,8),
+18.89
+],
+[
+"ABEV3.SA",
+new Date(2017,4,5),
+18.9
+],
+[
+"ABEV3.SA",
+new Date(2017,4,4),
+19.03
+],
+[
+"ABEV3.SA",
+new Date(2017,4,3),
+18.56
+],
+[
+"ABEV3.SA",
+new Date(2017,4,2),
+18.57
+],
+[
+"ABEV3.SA",
+new Date(2017,3,28),
+18.26
+],
+[
+"ABEV3.SA",
+new Date(2017,3,27),
+18.2
+],
+[
+"ABEV3.SA",
+new Date(2017,3,26),
+18.21
+],
+[
+"ABEV3.SA",
+new Date(2017,3,25),
+18.32
+],
+[
+"ABEV3.SA",
+new Date(2017,3,24),
+18.03
+],
+[
+"ABEV3.SA",
+new Date(2017,3,20),
+17.98
+],
+[
+"ABEV3.SA",
+new Date(2017,3,19),
+18.1
+],
+[
+"ABEV3.SA",
+new Date(2017,3,18),
+18.16
+],
+[
+"ABEV3.SA",
+new Date(2017,3,17),
+18.06
+],
+[
+"ABEV3.SA",
+new Date(2017,3,13),
+17.76
+],
+[
+"ABEV3.SA",
+new Date(2017,3,12),
+17.67
+],
+[
+"ABEV3.SA",
+new Date(2017,3,11),
+17.62
+],
+[
+"ABEV3.SA",
+new Date(2017,3,10),
+18
+],
+[
+"ABEV3.SA",
+new Date(2017,3,7),
+18.05
+],
+[
+"ABEV3.SA",
+new Date(2017,3,6),
+17.98
+],
+[
+"ABEV3.SA",
+new Date(2017,3,5),
+17.88
+],
+[
+"ABEV3.SA",
+new Date(2017,3,4),
+18.11
+],
+[
+"ABEV3.SA",
+new Date(2017,3,3),
+18
+],
+[
+"ABEV3.SA",
+new Date(2017,2,31),
+18.24
+],
+[
+"ABEV3.SA",
+new Date(2017,2,30),
+18.27
+],
+[
+"ABEV3.SA",
+new Date(2017,2,29),
+18.18
+],
+[
+"ABEV3.SA",
+new Date(2017,2,28),
+17.94
+],
+[
+"ABEV3.SA",
+new Date(2017,2,27),
+17.79
+],
+[
+"ABEV3.SA",
+new Date(2017,2,24),
+17.63
+],
+[
+"ABEV3.SA",
+new Date(2017,2,23),
+17.44
+],
+[
+"ABEV3.SA",
+new Date(2017,2,22),
+17.31
+],
+[
+"ABEV3.SA",
+new Date(2017,2,21),
+17.42
+],
+[
+"ABEV3.SA",
+new Date(2017,2,20),
+17.64
+],
+[
+"ABEV3.SA",
+new Date(2017,2,17),
+17.21
+],
+[
+"ABEV3.SA",
+new Date(2017,2,16),
+17.28
+],
+[
+"ABEV3.SA",
+new Date(2017,2,15),
+17.3
+],
+[
+"ABEV3.SA",
+new Date(2017,2,14),
+17.1
+],
+[
+"ABEV3.SA",
+new Date(2017,2,13),
+17.36
+],
+[
+"ABEV3.SA",
+new Date(2017,2,10),
+17.3
+],
+[
+"ABEV3.SA",
+new Date(2017,2,9),
+17.3
+],
+[
+"ABEV3.SA",
+new Date(2017,2,8),
+17.12
+],
+[
+"ABEV3.SA",
+new Date(2017,2,7),
+16.82
+],
+[
+"ABEV3.SA",
+new Date(2017,2,6),
+17.25
+],
+[
+"ABEV3.SA",
+new Date(2017,2,3),
+17.39
+],
+[
+"ABEV3.SA",
+new Date(2017,2,2),
+17.21
+],
+[
+"ABEV3.SA",
+new Date(2017,2,1),
+17.91
+],
+[
+"ABEV3.SA",
+new Date(2017,1,24),
+17.84
+],
+[
+"ABEV3.SA",
+new Date(2017,1,23),
+18.13
+],
+[
+"ABEV3.SA",
+new Date(2017,1,22),
+18.28
+],
+[
+"ABEV3.SA",
+new Date(2017,1,21),
+18.07
+],
+[
+"ABEV3.SA",
+new Date(2017,1,20),
+17.84
+],
+[
+"ABEV3.SA",
+new Date(2017,1,17),
+17.9
+],
+[
+"ABEV3.SA",
+new Date(2017,1,16),
+17.97
+],
+[
+"ABEV3.SA",
+new Date(2017,1,15),
+18.02
+],
+[
+"ABEV3.SA",
+new Date(2017,1,14),
+17.38
+],
+[
+"ABEV3.SA",
+new Date(2017,1,13),
+17.25
+],
+[
+"ABEV3.SA",
+new Date(2017,1,10),
+17.14
+],
+[
+"ABEV3.SA",
+new Date(2017,1,9),
+16.89
+],
+[
+"ABEV3.SA",
+new Date(2017,1,8),
+16.96
+],
+[
+"ABEV3.SA",
+new Date(2017,1,7),
+17.02
+],
+[
+"ABEV3.SA",
+new Date(2017,1,6),
+17.07
+],
+[
+"ABEV3.SA",
+new Date(2017,1,3),
+17.35
+],
+[
+"ABEV3.SA",
+new Date(2017,1,2),
+17.16
+],
+[
+"ABEV3.SA",
+new Date(2017,1,1),
+17.32
+],
+[
+"ABEV3.SA",
+new Date(2017,0,31),
+17.2
+],
+[
+"ABEV3.SA",
+new Date(2017,0,30),
+16.97
+],
+[
+"ABEV3.SA",
+new Date(2017,0,27),
+17.32
+],
+[
+"ABEV3.SA",
+new Date(2017,0,26),
+17.31
+] 
+];
+data.addColumn('string','bond');
+data.addColumn('date','data');
+data.addColumn('number','cot');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartMotionChartID14962bdffa77() {
+var data = gvisDataMotionChartID14962bdffa77();
+var options = {};
+options["width"] = 900;
+options["height"] = 450;
+options["state"] = "";
+
+    var chart = new google.visualization.MotionChart(
+    document.getElementById('MotionChartID14962bdffa77')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "motionchart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartMotionChartID14962bdffa77);
+})();
+function displayChartMotionChartID14962bdffa77() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID14962bdffa77"></script>
+ 
+
+<!-- divChart -->
+
+<div id="MotionChartID14962bdffa77" 
+  style="width: 900; height: 450;">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>O que são Opções ?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<br>
+<br>
+<br></p>
+
+<p><center>
+<font color="gray" size="15" face="arial">
+<strong><b>
+Opções vs. Ações
+<br>
+<br>
+Call vs. Put
+</b></strong></font></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Teoria - Movimento Browniano</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br/></p>
+
+<p>Um processo estocástico \(\{ X(t), t \geq 0 \}\) com espaço de estados \(S=R\) é Movimento Browniano se satisfaz:</p>
+
+<p><br></p>
+
+<ol>
+<li>\(X(0) = 0\)</li>
+<li>\(X(t)\) tem incrementos independentes e estacionários</li>
+<li>\(X(t+s) - X(s) \sim  N(0,t)\)</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Teoria - Equação de Black-Scholes (1)</h2>
+  </hgroup>
+  <article data-timings="">
+    <div class="col3">
+
+<p><center><img src="./assets/img/black.jpg" align="middle">
+</center></p>
+
+<p><center><img src="./assets/img/scholes.png" align="middle">
+</center></p>
+
+<p><center><img src="./assets/img/merton.jpg" align="middle">
+</center></p>
+
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Teoria - Equação de Black-Scholes (2)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<p style="font-size:40px">
+
+$$
+C_{o} = S_{o}N(d_{1}) - Xe^{-rT}N(d_{2})
+$$
+</p>
+
+<p style="font-size:15px">
+<div class="col2">
+onde,
+$$
+d_{1} = \frac{\ln(\frac{S_{o}}{X}) + (r + \frac{\sigma^{2}}{2})T}{\sigma\sqrt{T}}
+$$
+
+$$
+d_{2} = \frac{\ln(\frac{S_{o}}{X}) + (r - \frac{\sigma^{2}}{2})T}{\sigma\sqrt{T}}
+$$
+ou,
+$$ 
+d_{2} = d_{1} - \sigma\sqrt{T}
+$$
+
+\(S_{o} = \) preço da ação; <br/>
+
+\(X = \) preço de exercício (strike); <br/>
+
+\(r = \) taxa de juros "risk-free"; <br/>
+
+\(T = \) tempo até expirar; <br/>
+
+\(\sigma = \) desvio padrão dos retornos em escala log (volatilidade)
+
+</div>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Exemplo - Cálculo do preço de uma Opção Call (1)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Preço da ação \(S_{o}\): \($62,00\)</li>
+<li>Preço de exercício \(X\): \($62,00\)</li>
+<li>Tempo até expirar \(T\): \(40\) dias \(\rightarrow\) \(40/365\)</li>
+<li>Volatilidade \(\sigma\): \(32\% \rightarrow .32\)</li>
+<li>Taxa de juros &quot;risk-free&quot;: \(4\% \rightarrow .4\)</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p>\[
+d_{1} = \frac{\ln(\frac{62}{60}) + (0.4 +\frac{(.32)^{2}}{2})\frac{40}{365}} {.32\sqrt{\frac{40}{365}}} \approx 0.4
+\]</p>
+
+<p>\[
+d_{2} = 0.404 - 0.32\sqrt{\frac{40}{365}} \approx 0.3
+\]
+\[ N(d_{1}) \approx 0.6554\]
+\[ N(d_{2}) \approx 0.6179\]</p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Exemplo - Cálculo do preço de uma Opção Call (2)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<p style="font-size:40px">
+
+$$
+C_{o} = S_{o}N(d_{1}) - Xe^{-rT}N(d_{2})
+$$
+</p>
+
+<p style="font-size:20px">
+
+$$
+C_{o} = (62)(0.6554) - [(60)e^{-0.04(\frac{40}{365})}(0.6179)]
+$$
+
+$$
+C_{o} = 40.63 - (59.74)(0.6179)
+$$
+
+$$
+C_{o} = \$40.63 - \$36.91 = \$3.72
+$$
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Obrigado!!!</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Movimento Browniano - Mercado Financeiro'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Exemplo Movimento Browniano - Mercado Financeiro'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='O que são Opções ?'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Teoria - Movimento Browniano'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Teoria - Equação de Black-Scholes (1)'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Teoria - Equação de Black-Scholes (2)'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Exemplo - Cálculo do preço de uma Opção Call (1)'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Exemplo - Cálculo do preço de uma Opção Call (2)'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Obrigado!!!'>
+         10
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- Google Prettify -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+  <script src='libraries/highlighters/prettify/js/lang-r.js'></script>
+  <script>
+    var pres = document.getElementsByTagName("pre");
+    for (var i=0; i < pres.length; ++i) {
+      pres[i].className = "prettyprint linenums";
+    }
+    prettyPrint();
+  </script>
+  <!-- End Google Prettify --> 
+  </html>
