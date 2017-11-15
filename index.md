@@ -3165,7 +3165,7 @@ Um processo estocástico $\{ X(t), t \geq 0 \}$ com espaço de estados $S=R$ é 
 
 --- .class #id  
 
-## Teoria - Equação de Black-Scholes (1)
+## Teoria - Black-Scholes (e Merton!!)
 
 <div class="col3">
 
@@ -3183,7 +3183,7 @@ Um processo estocástico $\{ X(t), t \geq 0 \}$ com espaço de estados $S=R$ é 
 
 --- .class #id  
 
-## Teoria - Equação de Black-Scholes (2)
+## Teoria - Equação de Black-Scholes
 
 
 <p style="font-size:40px">
