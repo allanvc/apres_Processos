@@ -86,7 +86,7 @@ Movimento Browniano como conhecemos:
 </center></p>
 
 --- {class: class, tpl: tabs}
-## Exemplo Mov. Br. - Mercado Financeiro
+## Exemplo - Mercado Financeiro
 
 *** {class: active, id: day}
 
